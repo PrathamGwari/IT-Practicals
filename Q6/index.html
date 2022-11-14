@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>question6</title>
+  <style>
+      .main-parent {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #ffffff;
+          color:"white";     }
+      .form-parent {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          background-color: #242424;
+          border-radius: 20px;
+          gap: 20px;
+      }
+      .form-parent>h1 {
+          text-align: center;
+          font-size: 28px;
+          font-family: 'Arial Narrow', Arial, sans-serif;
+      }
+      .form-parent>div>input {
+          font-size: medium;
+          padding: 5px;
+          border-radius: .7rem;
+          border: none;
+      }
+      .form-parent>button {
+          padding: 5px;
+          background-color: #ff9480;
+          color: rgb(16, 48, 35);
+          font-size: medium;
+          font-weight: bold;
+          border-radius: 2rem;
+          border: none;
+          cursor: pointer;
+      }
+      .input-parent {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 5px;
+      }
+      .main-container {
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem
+      }
+      .images-container {
+          display: flex;
+          column-gap: 2rem;
+          align-items: center;
+      }
+      img {
+        width: 400px;
+        height: 400px;
+      }
+      .images-container>img {
+          border-radius: 2rem;
+      }
+      body {
+          background: #ffffff;
+      }
+ 
+      label {
+          color: white;
+      }
+ 
+      h1 {
+          color: white;
+      }
+  </style>
+</head>
+<body>
+ 
+   <div class="main-container">
+      
+       <div class="images-container">
+           <img style="transform: translate(0px,-50px);" src="https://i.pinimg.com/originals/21/27/2d/21272d7d89d39451737885b05d6d940d.gif" alt="">
+           <img style="transform: translate(0px,50px);" src="https://cdn.myportfolio.com/df8a6d00-877d-4290-bc3e-8652383d0fb3/ca4dbb7b-587e-485a-969e-55332333bd70_rw_600.gif?h=e1c636787a4879fafc3e1718b96f4617" alt="">
+
+       </div>
+       <div class="main-parent">
+          <form action="" class="form-parent">
+              <h1>Enter Pet Information</h1>
+              <div class="input-parent">
+                  <label for="petname">Pet Name : </label>
+                  <input type="text" id="petname">
+              </div>
+              <div class="input-parent">
+                  <label for="age"> Pet Age : </label>
+                  <input type="number" id="age">
+              </div>
+              <div class="input-parent">
+                  <label for="weight"> Pet Weight : </label>
+                  <input type="number" name="" id="weight">
+              </div>
+              <div class="input-parent">
+                  <label for="type">Pet Breed : </label>
+                  <input type="text" id="type">
+              </div>
+              <div class="input-parent">
+                  <label for="like"> Pet Likes : </label>
+                  <input type="text" id="like">
+              </div>
+              <button id="submit">Submit</button>
+          </form>
+       </div>
+   </div>
+ 
+ 
+</body>
+<script>
+  const submit = document.getElementById("submit");
+  submit.addEventListener("click", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("petname").value;
+      const age = document.getElementById("age").value;
+      const weight = document.getElementById("weight").value;
+      const type = document.getElementById("type").value;
+      const like = document.getElementById("like").value;
+      const nameRegEx = "^[A-Za-z]+$";
+      if (!name.match(nameRegEx)) return alert("Please Enter Valid First Name");
+      if (age > 20 || age < 1) return alert("Please Enter valid Age");
+      const Pet = { name, age, weight, type, like };
+      console.log(Pet);
+      const PetJson = JSON.stringify(Pet);
+      console.log(PetJson);
+  })
+</script>
+</html>
+ 
+
